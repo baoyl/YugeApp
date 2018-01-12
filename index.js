@@ -1,6 +1,23 @@
-import { AppRegistry } from 'react-native';
-//import App from './App';
+import { AppRegistry} from 'react-native';
 
-import LayoutTest from './app/LayoutTest';
+import {
+    StackNavigator,
+  } from 'react-navigation';
 
-AppRegistry.registerComponent('YugeApp', () => LayoutTest);
+// import App from './App';
+
+
+
+// import LayoutTest from './app/LayoutTest';
+
+import HotUpdate from './app/test/HotUpdate';
+
+import AppointHospitalList from './app/test/AppointHospitalList';
+
+const App = StackNavigator({
+    Main: {screen: AppointHospitalList},
+    HohUpdate: {screen: HotUpdate},
+  });
+
+
+AppRegistry.registerComponent('YugeApp', () => App);
