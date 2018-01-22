@@ -2,6 +2,10 @@ import React, { Component } from "react";
 
 import Request from '../utils/Request';
 
+import appointApi from '../api/appointReferralApi';
+
+let access_token = "6F6BE0CAA39740A49E89466F6E89AAE7";
+
 import {
     View,
     ScrollView,
@@ -26,7 +30,7 @@ export default class AppointHospitalList extends Component<{}>{
     componentWillMount(){
         var self = this;
         var param = {"serviceType":"appointReferral", "flag":"flag"};
-        var p = Request.async("http://m.yuge.com/hs/appointReferral/queryHospitalList.do?access_token=D9AC89E9BF2644048771A48CBBFD80A4", param);	
+        var p = Request.async(appointApi.appointReferralApi.queryHospitalList + "?access_token=" + access_token, param);	
         p.then(function(data) {
             var businessHospitalList = data.result.businessHospitalList;
             self.setState({businessHospitalList: businessHospitalList});
@@ -35,7 +39,7 @@ export default class AppointHospitalList extends Component<{}>{
     goPage(){
         const { navigate } = this.props.navigation;
         
-        navigate('HohUpdate', { name: 'HohUpdate' });
+        navigate('pullViewPage', { name: 'pullViewPage' });
           
     }
     render(){  
@@ -44,7 +48,7 @@ export default class AppointHospitalList extends Component<{}>{
            <ScrollView>
                 <View>
                 { (hospitalList||[]).map((hospital, index) =>
-                    <Text onPress={this.goPage.bind(this)} style={styles.instructions} key={index}> {hospital.hospitalName}</Text>
+                    <Text style={styles.instructions} key={index}> {hospital.hospitalName}</Text>
                 )}
                 </View>
            </ScrollView>

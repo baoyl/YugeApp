@@ -13,8 +13,10 @@
     "lodash": "^4.17.4",
     "metro-bundler": "^0.22.1",
     "minimatch": "^3.0.4",
+    "native-echarts": "^0.4.0",
     "react": "16.2.0",
     "react-native": "0.52.0",
+    "react-native-pull": "^2.0.2",
     "react-native-update": "^5.0.0",
     "simple-plist": "^0.2.1",
     "sync-request": "^3.0.1"
